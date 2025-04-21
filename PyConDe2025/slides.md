@@ -38,7 +38,6 @@ compare_with_snapshot(1 + 1)  # 2 is written to file
 ``` python
 from inline_snapshot import snapshot
 
-
 def test_add():
     assert 1 + 1 == snapshot()
 ```
@@ -48,7 +47,6 @@ def test_add():
 <!-- inline-snapshot: create outcome-passed=1 outcome-errors=1 -->
 ``` python hl_lines="3"
 from inline_snapshot import snapshot
-
 
 def test_add():
     assert 1 + 1 == snapshot(2)
@@ -102,12 +100,10 @@ from inline_snapshot import snapshot
 
 expected = snapshot(2)
 
-
 def test_example():
     assert 1 + 1 == expected
     assert 5 - 3 == expected
     check_all([2 + 0, -2 * -1], expected)
-
 
 def check_all(values, expected_snapshot):
     for value in values:
@@ -124,7 +120,6 @@ def check_all(values, expected_snapshot):
 ``` python
 from inline_snapshot import snapshot
 import pytest
-
 
 @pytest.mark.parametrize(
     "a,b,result",
@@ -152,12 +147,10 @@ def test_add(a, b, result):
 from inline_snapshot import snapshot
 from dataclasses import dataclass
 
-
 @dataclass
 class Point:
     x: int
     y: int
-
 
 def test_dataclass():
     assert Point(1, 2) == snapshot(Point(x=1, y=2))
@@ -182,10 +175,8 @@ def test_dataclass():
 from uuid import uuid4, UUID
 from inline_snapshot import snapshot
 
-
 def data():
     return {"user": "Bod", "id": uuid4()}
-
 
 def test_data():
     assert data() == snapshot(
@@ -208,10 +199,8 @@ from uuid import uuid4
 from inline_snapshot import snapshot
 from dirty_equals import IsUuid
 
-
 def data():
     return {"user": "Bod", "id": uuid4()}
-
 
 def test_data():
     assert data() == snapshot(
@@ -228,10 +217,8 @@ def test_data():
 from inline_snapshot import snapshot
 from dirty_equals import IsJson
 
-
 def data():
     return {"user": "Bod", "data": '{"a":5,"b":10}'}
-
 
 def test_data():
     assert data() == snapshot(
@@ -251,16 +238,14 @@ def test_data():
 from inline_snapshot import snapshot
 from dirty_equals import IsJson
 
-
 def data():
     return {"user": "Bod", "data": '{"a":5,"b":10}'}
-
 
 def test_data():
     assert data() == snapshot(
         {
             "user": "Bod",
-            "data": IsJson(snapshot({'a':5 ,'b':10 })),
+            "data": IsJson(snapshot({"a": 5, "b": 10})),
         }
     )
 ```
@@ -336,7 +321,6 @@ def test_product():
 def test_create():
     assert 1 + 1 == ...
 
-
 def test_fix():
     assert 1 + 5 == 2
 ```
@@ -351,7 +335,6 @@ def test_fix():
 ``` python
 def test_create():
     assert 1 + 1 == 2
-
 
 def test_fix():
     assert 1 + 5 == 6

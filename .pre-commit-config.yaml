@@ -1,8 +1,0 @@
-repos:
-- hooks:
-  - id: blacken-docs
-    args: [-l60]
-  repo: https://github.com/adamchainz/blacken-docs
-  rev: 1.19.1
-
-
