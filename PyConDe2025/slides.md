@@ -298,8 +298,9 @@ def test_product():
 
 ## There is more
 
-* operators <=, >=, in
-* sub-snapshots expected\_values[x]
+* operators: <=, >=, in
+* sub-snapshots: snapshot()[x]
+* custom code: Is()
 * external()
 
 
