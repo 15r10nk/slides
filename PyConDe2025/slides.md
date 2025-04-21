@@ -27,7 +27,7 @@ assert 1 + 1 == 2
 
 general snapshot testing
 ``` python
-match_snapshot(1 + 1)  # 2 is written to file
+compare_with_snapshot(1 + 1)  # 2 is written to file
 ```
 
 [comment]: # (!!!)
@@ -80,7 +80,7 @@ assert 1 + 5 == snapshot(6)
 
 * works well for strings or larger data structures
 * no indirection
-* no file names
+* very useful for values which are likely to change
 * code is easy to read/review
 * can be formatted like normal python code
 * simple semantics
