@@ -1,11 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Supercharge your testing with inline-snapshot</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/league.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/androidstudio.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
 [comment]: # (Set the theme:)
-[comment]: # (THEME = league)
-[comment]: # (CODE_THEME = androidstudio)
 
 
 ## Supercharge your testing with inline-snapshot
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ## About Me
 
@@ -16,7 +31,8 @@ Frank Hoffmann
 * @15r10nk on Github, Fosstodon and X
 * or 15r10nk@polarbit.de
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### What is snapshot testing?
 
@@ -30,7 +46,8 @@ general snapshot testing
 compare_with_snapshot(1 + 1)  # 2 is written to file
 ```
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### What is inline-snapshot testing?
 
@@ -55,7 +72,8 @@ def test_add():
 ```
 
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### What is inline-snapshot testing?
 
@@ -74,7 +92,8 @@ assert 1 + 5 == snapshot(6)
 ```
 
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Benefits
 
@@ -88,7 +107,8 @@ assert 1 + 5 == snapshot(6)
     ```
   (used by *-\-inline-snapshot=disable* or in CI)
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Rules
 
@@ -114,7 +134,8 @@ def check_all(values, expected_snapshot):
         assert value == expected_snapshot
 ```
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Rules
 
@@ -139,7 +160,8 @@ def test_add(a, b, result):
 ```
 
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Rules
 
@@ -163,7 +185,8 @@ def test_dataclass():
     assert Point(1, 2) == snapshot(Point(x=1, y=2))
 ```
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Rules
 
@@ -172,7 +195,9 @@ def test_dataclass():
   * snapshots
   * custom code
 
-[comment]: # (!!!)
+</textarea></section>
+<section>
+<section data-markdown  ><textarea data-template>
 
 #### dirty-equals
 
@@ -198,7 +223,8 @@ def test_data():
     )
 ```
 
-[comment]: # (|||)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 #### dirty-equals
 
@@ -219,7 +245,8 @@ def test_data():
     )
 ```
 
-[comment]: # (|||)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 #### dirty-equals
 
@@ -242,7 +269,8 @@ def test_data():
     )
 ```
 
-[comment]: # (|||)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 #### dirty-equals
 
@@ -265,7 +293,10 @@ def test_data():
     )
 ```
 
-[comment]: # (!!!)
+</textarea></section>
+</section>
+<section>
+<section data-markdown  ><textarea data-template>
 
 #### snapshot inside snapshot
 
@@ -286,7 +317,8 @@ def test_product():
     )
 ```
 
-[comment]: # (|||)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 
 <!-- inline-snapshot: create first_block outcome-passed=1 -->
@@ -309,7 +341,9 @@ def test_product():
 ```
 
 
-[comment]: # (!!!)
+</textarea></section>
+</section>
+<section data-markdown  ><textarea data-template>
 
 ## There is more
 
@@ -318,7 +352,8 @@ def test_product():
 * external()
 
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 > Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
 
@@ -326,7 +361,9 @@ def test_product():
 -- Antoine de Saint-Exupéry, Airman's Odyssey
 </small>
 
-[comment]: # (!!!)
+</textarea></section>
+<section>
+<section data-markdown  ><textarea data-template>
 
 ### Insider Features
 
@@ -342,7 +379,8 @@ def test_fix():
 ```
 
 
-[comment]: # (|||)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Insider Features
 
@@ -357,7 +395,9 @@ def test_fix():
     assert 1 + 5 == 6
 ```
 
-[comment]: # (!!!)
+</textarea></section>
+</section>
+<section data-markdown ><textarea data-template>
 
 ### Thank you
 
@@ -385,3 +425,26 @@ to all my sponsors
 </div>
 
 and everyone who uses inline-snapshot.
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
