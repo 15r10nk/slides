@@ -104,7 +104,7 @@ assert 1 + 5 == snapshot(6)
 * you can compare it multiple times
 
 <!-- inline-snapshot: create first_block outcome-passed=1 -->
-``` python [1-20|3|7-8|9,14]
+``` python [1-20|3|6-7|8,12]
 from inline_snapshot import snapshot
 
 expected = snapshot(2)
@@ -150,6 +150,7 @@ def test_add(a, b, result):
 * you can compare almost everything with an snapshot
   * list,dict,set,tuple,enums...
   * dataclass, pydantic models, attrs
+  * valid python code eval(repr(v)) == v
 
 <!-- inline-snapshot: create first_block outcome-passed=1 -->
 ``` python
@@ -172,7 +173,7 @@ def test_dataclass():
 * you can also put special values inside snapshots
   * dirty-equals expressions
   * snapshots
-  * custom code
+  * custom code with Is()
 
 [comment]: # (!!!)
 
@@ -180,7 +181,7 @@ def test_dataclass():
 
 
 <!-- inline-snapshot: create first_block outcome-passed=1 outcome-errors=1 -->
-``` python [14]
+``` python [1-11|5,12]
 from uuid import uuid4, UUID
 from inline_snapshot import snapshot
 
@@ -203,7 +204,7 @@ def test_data():
 #### dirty-equals
 
 <!-- inline-snapshot: outcome-errors=1 -->
-``` python [3,12]
+``` python [3,10]
 from uuid import uuid4
 from inline_snapshot import snapshot
 from dirty_equals import IsUuid
@@ -222,7 +223,7 @@ def test_data():
 #### dirty-equals
 
 <!-- inline-snapshot: first_block outcome-passed=1 outcome-errors=1 -->
-``` python [13]
+``` python [11]
 from inline_snapshot import snapshot
 from dirty_equals import IsJson
 
@@ -243,7 +244,7 @@ def test_data():
 #### dirty-equals
 
 <!-- inline-snapshot: create outcome-passed=1 outcome-errors=1 -->
-``` python [13]
+``` python [11]
 from inline_snapshot import snapshot
 from dirty_equals import IsJson
 
