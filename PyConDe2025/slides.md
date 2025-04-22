@@ -71,6 +71,15 @@ from inline_snapshot import snapshot
 assert 1 + 5 == snapshot(6)
 ```
 
+[comment]: # (!!!)
+
+> inline-snapshot is also everywhere in the tests for 
+@FastAPI
+ and my other projects, it has enabled really complex migrations and internal refactors, inline-snapshot plus dirty-equals are an amazing combo for complex tests. ✨🚀
+
+<small>
+-- Sebastián Ramírez
+</small>
 
 [comment]: # (!!!)
 
@@ -296,10 +305,48 @@ def test_product():
 
 [comment]: # (!!!)
 
+#### snapshot()[x]
+
+* you can use [x] to index a sub-snapshot inside a snapshot
+
+<!-- inline-snapshot: first_block outcome-passed=4 outcome-errors=4 -->
+``` python [1-9|4,9]
+from inline_snapshot import snapshot
+import pytest
+
+values=snapshot()
+
+@pytest.mark.parametrize("a",[1,2])
+@pytest.mark.parametrize("b",[3,4])
+def test_add(a, b):
+    assert a + b == values[a,b]
+```
+
+[comment]: # (|||)
+
+#### snapshot()[x]
+
+
+<!-- inline-snapshot: create outcome-passed=4 outcome-errors=4 -->
+``` python [4]
+from inline_snapshot import snapshot
+import pytest
+values = snapshot(
+    {(1, 3): 4, (2, 3): 5, (1, 4): 5, (2, 4): 6}
+)
+
+@pytest.mark.parametrize("a", [1, 2])
+@pytest.mark.parametrize("b", [3, 4])
+def test_add(a, b):
+    assert a + b == values[a, b]
+```
+
+
+[comment]: # (!!!)
+
 ## There is more
 
 * operators: <=, >=, in
-* sub-snapshots: snapshot()[x]
 * custom code: Is()
 * external()
 
